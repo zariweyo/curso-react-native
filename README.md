@@ -4,4 +4,3 @@
 * Contenedor View y componente básico Text
 
 [Volver](https://github.com/zariweyo/curso-react-native)
-
