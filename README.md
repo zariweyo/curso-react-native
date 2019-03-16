@@ -7,7 +7,7 @@
 * Casos de éxito de React Native
 * Donde React Native destaca y donde no
 * React Native Expo
-## Preparar el entorno [a link](https://github.com/zariweyo/curso-react-native/tree/hola_mundo)
+## [Preparar el entorno](https://github.com/zariweyo/curso-react-native/tree/hola_mundo)
 * Objetivo del tema
 * Requisitos. Android Studio
 * Requisitos. XCode
@@ -21,7 +21,7 @@
 ## Componentes
 * Qué es un componente. Estructura de proyectos
 * Crear, importar y usar componentes
-* Contenedor View y componente básico Text [a link](https://github.com/zariweyo/curso-react-native/tree/componentes-1)
+* [Contenedor View y componente básico Text](https://github.com/zariweyo/curso-react-native/tree/componentes-1)
 * Envío de propiedades a los componentes
 * State y setState
 * Heigth, Width y  Flexbox
