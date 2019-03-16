@@ -3,16 +3,14 @@ import {Text, StyleSheet} from 'react-native';
 
 export default class TextoVerde extends Component{
 
-    mitexto="";
-
     constructor(props){
         super(props);
-        this.mitexto = props.texto;
+        
     }
 
     render(){
         return (
-            <Text style={styles.texto}>{this.mitexto}</Text>
+            <Text style={styles.texto}>{this.props.texto}</Text>
         );
     }
 }
