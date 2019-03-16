@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import TextoVerde from './Componentes/TextoVerde';
 
 export default class Inicio extends Component{
 
     render(){
         return (
             <View style={styles.container}>
-                <Text style={styles.texto}>Inicio</Text>
+                <TextoVerde
+                    texto="Openwebinars 2"
+                ></TextoVerde>
             </View>
         );
     }
