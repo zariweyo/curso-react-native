@@ -44,28 +44,23 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection:'row',
-      justifyContent: 'center',
-      alignItems: 'center',
       backgroundColor: '#F5FCFF',
     },
     cuadroBase:{
-        margin:5
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     cuadro1:{
-        width:90,
-        height:100,
+        flex:0.2,
         backgroundColor:"#114411"
     },
     cuadro2:{
-        width:60,
-        height:50,
+        flex:0.4,
         backgroundColor:"#441111"
 
     },
     cuadro3:{
-        width:80,
-        height:110,
+        flex:0.4,
         backgroundColor:"#111144"
-
     }
 });
