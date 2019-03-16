@@ -10,4 +10,4 @@
 * Ejecutar aplicación en emulador Android
 * Ejecutar aplicación en emulador iOS
 
-[Volver] (https://github.com/zariweyo/curso-react-native)
+[Volver](https://github.com/zariweyo/curso-react-native)
