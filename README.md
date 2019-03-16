@@ -1,12 +1,5 @@
 # Curso React Native
-
-## Introducción
-* Presentación del curso
-* Alternativas de desarrollo para plataformas móviles
-* Cómo funciona React Native
-* Casos de éxito de React Native
-* Donde React Native destaca y donde no
-* React Native Expo
+Esto es un curso básico de React Native
 ## [Preparar el entorno](https://github.com/zariweyo/curso-react-native/tree/hola_mundo)
 * Objetivo del tema
 * Requisitos. Android Studio
