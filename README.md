@@ -18,14 +18,17 @@
 * Hola mundo
 * Ejecutar aplicación en emulador Android
 * Ejecutar aplicación en emulador iOS
-## Componentes
+## [Componentes 1](https://github.com/zariweyo/curso-react-native/tree/componentes-1)
 * Qué es un componente. Estructura de proyectos
 * Crear, importar y usar componentes
-* [Contenedor View y componente básico Text](https://github.com/zariweyo/curso-react-native/tree/componentes-1)
+* Contenedor View y componente básico Text
+## Propiedades
 * Envío de propiedades a los componentes
+## Renders
 * State y setState
 * Heigth, Width y  Flexbox
 * Estilos
+## Calculadora V 0.1
 * Calculadora V 0.1
 ## Componentes básicos del framework
 * Cuáles son los componentes básicos del framework
