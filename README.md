@@ -1,8 +1,5 @@
-## Componentes básicos del framework
-* Cuáles son los componentes básicos del framework
-* TextInput
-* Button
-* ScrollView
-* FlatList
+## Componentes básicos del framework 2
+* Image
+* Picker
 
 [Volver](https://github.com/zariweyo/curso-react-native)
