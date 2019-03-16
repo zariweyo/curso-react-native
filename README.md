@@ -34,15 +34,18 @@
 * Flexbox
 ## [Calculadora V 0.1](https://github.com/zariweyo/curso-react-native/tree/calculadora-1)
 * Maquetar distribución de la calculadora
-## Componentes básicos del framework
+## [Componentes básicos del framework](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos)
 * Cuáles son los componentes básicos del framework
 * TextInput
 * Button
 * ScrollView
 * FlatList
+## [Componentes básicos del framework 2](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos-2)
 * Image 
 * Picker
-* Calculadora V 0.2
+## [Calculadora V 0.2](https://github.com/zariweyo/curso-react-native/tree/calculadora-2)
+* Botones de calculadora
+* Funciones y resultado
 ## APIs de React Native
 * Qué es una API de React Native
 * Alert y Dimensions
