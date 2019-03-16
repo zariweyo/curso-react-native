@@ -17,7 +17,7 @@ export default class TextoVerde extends Component{
 
 const styles = StyleSheet.create({
     texto:{
-        fontSize: 30,
+        fontSize:18,
         fontWeight:'bold',
         color:"#33ff33"
     }
