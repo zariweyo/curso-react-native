@@ -1,8 +1,9 @@
-## Calculadora V 0.1
-* Maquetar distribución de la calculadora
+## Calculadora V 0.2
+* Botones de calculadora
+* Funciones y resultado
 
-![calculadora_android](images/calculadora1_android.png?raw=true)
+![calculadora_android](images/calculadora2_android.png?raw=true)
 
-![calculdora_ios](images/calculadora1_ios.png?raw=true)
+![calculdora_ios](images/calculadora2_ios.png?raw=true)
 
 [Volver](https://github.com/zariweyo/curso-react-native)

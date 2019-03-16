@@ -1,15 +1,84 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import TextoBoton from './Componentes/TextoBoton';
+import BotonCalc from './Componentes/BotonCalc';
+import ValorResultado from './Componentes/ValorResultado';
 
 export default class Inicio extends Component{
 
     state = {
-        
+        total:0,
+        resultado:'0',
+        operacion:''
     }
     
 
     componentDidMount(){
+        
+    }
+
+    pulsadoNumero(_numero){
+        var _num = parseInt(this.state.resultado + "" + _numero);
+        this.setState({
+            resultado: _num
+        });
+    }
+
+    pulsadoOperacion(_operacion){
+        var total = this.calcular();
+
+        if(_operacion=="="){
+            this.setState({
+                total: 0,
+                resultado: total+'',
+                operacion:''
+            });
+        }else{
+            this.setState({
+                total: total,
+                resultado: '0',
+                operacion:_operacion
+            });
+        }
+        
+    }
+
+    pulsadoClear(){
+        this.setState({
+            total:0,
+            resultado:'0',
+            operacion:''
+        });
+    }
+
+    
+
+    calcular(){
+        var total = this.state.total;
+        var ultimo = parseInt(this.state.resultado);
+
+        if(this.state.operacion==''){
+            return ultimo;
+        }
+        
+        switch(this.state.operacion){
+            case '+':
+                total += ultimo;
+                break;
+            case '-':
+                total -= ultimo;
+                break;
+            case '/':
+                if(ultimo==0){
+                    return total;
+                }
+                total /= ultimo;
+                break;
+            case 'X':
+                total *= ultimo;
+                break;
+        }
+
+        return total;
         
     }
 
@@ -18,74 +87,73 @@ export default class Inicio extends Component{
         return (
             <View style={styles.container}>
                 <View style={styles.zonaResultado}>
-                    
+                    <ValorResultado style={styles.resultadoTotal} valor={this.state.total}></ValorResultado>
+                    <ValorResultado style={styles.resultadoParcial} valor={this.state.resultado}></ValorResultado>
                 </View>
 
                 <View style={styles.zonaBotones}>
                     <View style={styles.zonaNumeros}>
                         <View style={styles.teclasNumeros}>
                             <View style={styles.numero}>
-                                <TextoBoton texto="1"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,1)} texto="1"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto="2"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,2)} texto="2"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto="3"></TextoBoton>
-                            </View>
-                        </View>
-                        <View style={styles.teclasNumeros}>
-                            <View style={styles.numero}>
-                                <TextoBoton texto="4"></TextoBoton>
-                            </View>
-                            <View style={styles.numero}>
-                                <TextoBoton texto="5"></TextoBoton>
-                            </View>
-                            <View style={styles.numero}>
-                                <TextoBoton texto="6"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,3)} texto="3"></BotonCalc>
                             </View>
                         </View>
                         <View style={styles.teclasNumeros}>
                             <View style={styles.numero}>
-                                <TextoBoton texto="7"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,4)} texto="4"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto="8"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,5)} texto="5"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto="9"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,6)} texto="6"></BotonCalc>
                             </View>
                         </View>
                         <View style={styles.teclasNumeros}>
                             <View style={styles.numero}>
-                                <TextoBoton texto=""></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,7)} texto="7"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto="0"></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,8)} texto="8"></BotonCalc>
                             </View>
                             <View style={styles.numero}>
-                                <TextoBoton texto=""></TextoBoton>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,9)} texto="9"></BotonCalc>
+                            </View>
+                        </View>
+                        <View style={styles.teclasNumeros}>
+                            <View style={styles.numero}>
+                            </View>
+                            <View style={styles.numero}>
+                                <BotonCalc onPulsado={this.pulsadoNumero.bind(this,0)} texto="0"></BotonCalc>
+                            </View>
+                            <View style={styles.numero}>
                             </View>
                         </View>
                     </View>
                     <View style={styles.zonaOperaciones}>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="C"></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoClear.bind(this)}  texto="C"></BotonCalc>
                         </View>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="+"></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoOperacion.bind(this,'+')} texto="+"></BotonCalc>
                         </View>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="-"></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoOperacion.bind(this,"-")} texto="-"></BotonCalc>
                         </View>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="*"></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoOperacion.bind(this,"X")} texto="X"></BotonCalc>
                         </View>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="/"></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoOperacion.bind(this,"/")} texto="/"></BotonCalc>
                         </View>
                         <View style={styles.operacion}>
-                            <TextoBoton texto="="></TextoBoton>
+                            <BotonCalc onPulsado={this.pulsadoOperacion.bind(this,"=")} texto="="></BotonCalc>
                         </View>
                     </View>
                 </View>
@@ -104,7 +172,11 @@ const styles = StyleSheet.create({
     /* Nivel container*/
     zonaResultado:{
         flex: 0.2,
-        backgroundColor:"#882222"
+        backgroundColor:"#882222",
+        alignItems:'flex-end',
+        alignContent:'flex-end',
+        justifyContent: 'flex-end',
+        backgroundColor:'#555'
     },
     zonaBotones:{
         flex: 0.8,
@@ -137,7 +209,7 @@ const styles = StyleSheet.create({
 
     /* Nivel teclasNumeros */
     numero:{
-        flex:0.3,
+        flex:1,
         alignItems:'center',
         alignContent:'center',
         justifyContent: 'center'
@@ -150,7 +222,17 @@ const styles = StyleSheet.create({
         alignItems:'center',
         alignContent:'center',
         justifyContent: 'center'
-    }
+    },
     /*******/
+
+    resultadoTotal:{
+        color:"#999",
+        fontSize:30
+    },
+
+    resultadoParcial:{
+        color:"#222",
+        fontSize:40
+    }
 });
 
