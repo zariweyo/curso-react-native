@@ -1,40 +1,95 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import TextoVerde from './Componentes/TextoVerde';
+import TextoBoton from './Componentes/TextoBoton';
 
 export default class Inicio extends Component{
 
     state = {
-        texto1:  "texto de cuadro 1",
-        texto2:  "texto de cuadro 2",
-        texto3:  "texto de cuadro 3",
+        
     }
     
 
     componentDidMount(){
-        this.setState({
-            textoInicial: "texto ha cambiado"
-        });
+        
     }
+
 
     render(){
         return (
             <View style={styles.container}>
-                <View style={[styles.cuadro1,styles.cuadroBase]}>
-                    <TextoVerde
-                        texto={this.state.texto1}
-                    ></TextoVerde>
+                <View style={styles.zonaResultado}>
+                    
                 </View>
-                <View style={[styles.cuadro2,styles.cuadroBase]}>
-                    <TextoVerde
-                        texto={this.state.texto2}
-                    ></TextoVerde>
+
+                <View style={styles.zonaBotones}>
+                    <View style={styles.zonaNumeros}>
+                        <View style={styles.teclasNumeros}>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="1"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="2"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="3"></TextoBoton>
+                            </View>
+                        </View>
+                        <View style={styles.teclasNumeros}>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="4"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="5"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="6"></TextoBoton>
+                            </View>
+                        </View>
+                        <View style={styles.teclasNumeros}>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="7"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="8"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="9"></TextoBoton>
+                            </View>
+                        </View>
+                        <View style={styles.teclasNumeros}>
+                            <View style={styles.numero}>
+                                <TextoBoton texto=""></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto="0"></TextoBoton>
+                            </View>
+                            <View style={styles.numero}>
+                                <TextoBoton texto=""></TextoBoton>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.zonaOperaciones}>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="C"></TextoBoton>
+                        </View>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="+"></TextoBoton>
+                        </View>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="-"></TextoBoton>
+                        </View>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="*"></TextoBoton>
+                        </View>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="/"></TextoBoton>
+                        </View>
+                        <View style={styles.operacion}>
+                            <TextoBoton texto="="></TextoBoton>
+                        </View>
+                    </View>
                 </View>
-                <View style={[styles.cuadro3,styles.cuadroBase]}>
-                    <TextoVerde
-                        texto={this.state.texto3}
-                    ></TextoVerde>
-                </View>
+                
             </View>
         );
     }
@@ -43,24 +98,59 @@ export default class Inicio extends Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      flexDirection:'row',
+      flexDirection:'column',
       backgroundColor: '#F5FCFF',
     },
-    cuadroBase:{
-        justifyContent: 'center',
-        alignItems: 'center',
+    /* Nivel container*/
+    zonaResultado:{
+        flex: 0.2,
+        backgroundColor:"#882222"
     },
-    cuadro1:{
-        flex:0.2,
-        backgroundColor:"#114411"
+    zonaBotones:{
+        flex: 0.8,
+        flexDirection:'row',
+        backgroundColor:"#222288"
     },
-    cuadro2:{
-        flex:0.4,
-        backgroundColor:"#441111"
+    /******/
 
+    /* Nivel zonaBotones */
+    zonaOperaciones:{
+        flex:0.2,
+        flexDirection:'column',
+        borderWidth:2,
+        borderColor:"#228822"
     },
-    cuadro3:{
-        flex:0.4,
-        backgroundColor:"#111144"
+    zonaNumeros:{
+        flex:0.8,
+        flexDirection:'column',
+        borderWidth:2,
+        borderColor:"#ffffff"
+    },
+    /******/
+
+    /* Nivel zonaBotones */
+    teclasNumeros:{
+        flex:1,
+        flexDirection:'row',
+    },
+    /******/
+
+    /* Nivel teclasNumeros */
+    numero:{
+        flex:0.3,
+        alignItems:'center',
+        alignContent:'center',
+        justifyContent: 'center'
+    },
+    /******/
+
+    /* Nivel teclasOperacion */
+    operacion:{
+        flex:1,
+        alignItems:'center',
+        alignContent:'center',
+        justifyContent: 'center'
     }
+    /*******/
 });
+

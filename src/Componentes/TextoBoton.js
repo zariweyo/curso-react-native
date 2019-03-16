@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet} from 'react-native';
 
-export default class TextoVerde extends Component{
+export default class TextoBoton extends Component{
 
     constructor(props){
         super(props);
