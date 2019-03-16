@@ -1,13 +1,13 @@
 # Curso React Native
 
-## Introducción- Tiempo Estimado (15 minutos)
+## Introducción
 * Presentación del curso
 * Alternativas de desarrollo para plataformas móviles
 * Cómo funciona React Native
 * Casos de éxito de React Native
 * Donde React Native destaca y donde no
 * React Native Expo
-## Preparar el entorno  - Tiempo Estimado (45 minutos)
+## Preparar el entorno [a link](https://github.com/zariweyo/curso-react-native/tree/hola_mundo)
 * Objetivo del tema
 * Requisitos. Android Studio
 * Requisitos. XCode
@@ -18,16 +18,16 @@
 * Hola mundo
 * Ejecutar aplicación en emulador Android
 * Ejecutar aplicación en emulador iOS
-## Componentes - Tiempo Estimado (45 minutos)
+## Componentes
 * Qué es un componente. Estructura de proyectos
 * Crear, importar y usar componentes
-* Contenedor View y componente básico Text
+* Contenedor View y componente básico Text [a link](https://github.com/zariweyo/curso-react-native/tree/componentes-1)
 * Envío de propiedades a los componentes
 * State y setState
 * Heigth, Width y  Flexbox
 * Estilos
 * Calculadora V 0.1
-## Componentes básicos del framework - Tiempo Estimado (60 minutos)
+## Componentes básicos del framework
 * Cuáles son los componentes básicos del framework
 * TextInput
 * Button
@@ -36,7 +36,7 @@
 * Image 
 * Picker
 * Calculadora V 0.2
-## APIs de React Native - Tiempo Estimado (45 minutos)
+## APIs de React Native
 * Qué es una API de React Native
 * Alert y Dimensions
 * Keyboard
@@ -45,8 +45,8 @@
 * Geolocation
 * AsyncStorage
 * Calculadora V 0.3
-## Probar aplicaciones  - Tiempo Estimado (20 minutos)
+## Probar aplicaciones
 * Compilar y probar en Android
 * Compilar y probar en iOS
-## Conclusión final  - Tiempo Estimado (2 minutos)
+## Conclusión final
 * Resumen de curso
