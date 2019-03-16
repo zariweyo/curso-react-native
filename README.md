@@ -25,10 +25,13 @@
 ## [Componentes 2](https://github.com/zariweyo/curso-react-native/tree/propiedades)
 * JSX y variables
 * Envío de propiedades a los componentes
-## Renders
+## [Renders 1](https://github.com/zariweyo/curso-react-native/tree/renders)
 * State y setState
-* Heigth, Width y  Flexbox
+## [Renders 2](https://github.com/zariweyo/curso-react-native/tree/renders-2)
+* Heigth, Width
 * Estilos
+## [Renders 3](https://github.com/zariweyo/curso-react-native/tree/renders-3)
+* Flexbox
 ## Calculadora V 0.1
 * Calculadora V 0.1
 ## Componentes básicos del framework
