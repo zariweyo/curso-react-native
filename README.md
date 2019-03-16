@@ -43,6 +43,7 @@
 ## [Componentes básicos del framework 2](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos-2)
 * Image 
 * Picker
+* Platform
 ## [Calculadora V 0.2](https://github.com/zariweyo/curso-react-native/tree/calculadora-2)
 * Botones de calculadora
 * Funciones y resultado
