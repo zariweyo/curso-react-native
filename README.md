@@ -52,8 +52,3 @@ Esto es un curso básico de React Native
 * Geolocation
 ## [Calculadora V 0.3](https://github.com/zariweyo/curso-react-native/tree/calculadora-3)
 * Calculadora V 0.3
-## Probar aplicaciones
-* Compilar y probar en Android
-* Compilar y probar en iOS
-## Conclusión final
-* Resumen de curso
