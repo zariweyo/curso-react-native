@@ -1,4 +1,5 @@
 ## APIs 3
+* PermissionAndroid
 * Geolocation
 
 Aunque React Native dispone de un api específica para Geolocation (navigator.geolocation), en la misma documentación se hace referencia el proyecto react-native-geolocation-service [https://github.com/Agontuk/react-native-geolocation-service](https://github.com/Agontuk/react-native-geolocation-service) , que es el que usaremos aqui:
