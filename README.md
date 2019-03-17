@@ -1,7 +1,8 @@
 ## Componentes básicos del framework
 * Cuáles son los componentes básicos del framework
 * TextInput
-* Button
+* TouchableHighlight
+* TouchableOpacity
 * ScrollView
 * FlatList
 

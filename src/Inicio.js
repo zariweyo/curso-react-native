@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import {
     View, 
-    Text, 
     StyleSheet,
     TextInput,
-    Button,
     ScrollView,
     FlatList,
-    Image,
-    Picker
+    TouchableHighlight,
+    TouchableOpacity
 } from 'react-native';
 import TextoVerde from './Componentes/TextoVerde';
 
@@ -49,6 +47,13 @@ export default class Inicio extends Component{
         })
     }
 
+    delLista(){
+        this.state.listaDatos.pop();
+        this.setState({
+            listaDatos: this.state.listaDatos
+        });
+    }
+
     render(){
         return (
             <View style={styles.container}>
@@ -70,11 +75,23 @@ export default class Inicio extends Component{
                         onChangeText={(textoInput) => this.setState({textoInput})}
                     ></TextInput>
                     <TextoVerde texto={this.state.textoInput}></TextoVerde>
-                    <Button
-                        onPress={this.addLista.bind(this)}
-                        title="Añadir"
-                        style={styles.boton}
-                    ></Button>
+
+                    <View style={styles.botonesSep}>
+                        <TouchableHighlight
+                            onPress={this.addLista.bind(this)}
+                            style={styles.boton}
+                        >
+                            <TextoVerde texto="Añadir"></TextoVerde>
+                        </TouchableHighlight>
+                        <TouchableOpacity
+                            onPress={this.delLista.bind(this)}
+                            style={styles.boton}
+                        >
+                            <TextoVerde texto="Quitar último"></TextoVerde>
+                        </TouchableOpacity>
+
+                    </View>
+                    
                 </View>
 
                 <View style={styles.separador}>
@@ -111,8 +128,13 @@ const styles = StyleSheet.create({
         padding:2
     },
     boton:{
-        backgroundColor:"#fff",
-        color:"#0888"
+        backgroundColor:"#000",
+        padding:5,
+        borderRadius:10,
+        margin:2
+    },
+    botonesSep:{
+        flexDirection:'row'
     }
 });
 
