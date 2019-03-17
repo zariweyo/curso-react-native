@@ -40,14 +40,17 @@ Esto es un curso básico de React Native
 ## [Calculadora V 0.2](https://github.com/zariweyo/curso-react-native/tree/calculadora-2)
 * Botones de calculadora
 * Funciones y resultado
-## APIs de React Native
-* Qué es una API de React Native
+## [APIs de React Native 1](https://github.com/zariweyo/curso-react-native/tree/apis)
 * Alert y Dimensions
-* Keyboard
+* Keyboard y componente KeyboardAvoidingView
+## [APIs de React Native 2](https://github.com/zariweyo/curso-react-native/tree/apis-2)
 * Webview
-* Vibration
-* Geolocation
 * AsyncStorage
+## [APIs de React Native 3](https://github.com/zariweyo/curso-react-native/tree/apis-3)
+* Vibration
+## [APIs de React Native 4](https://github.com/zariweyo/curso-react-native/tree/apis-4)
+* Geolocation
+## [Calculadora V 0.3](https://github.com/zariweyo/curso-react-native/tree/calculadora-3)
 * Calculadora V 0.3
 ## Probar aplicaciones
 * Compilar y probar en Android
