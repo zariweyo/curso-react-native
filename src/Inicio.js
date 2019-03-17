@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {
     View, 
-    Text, 
-    StyleSheet,
+    Alert, 
+    Text,
+    Keyboard,
     TextInput,
-    Button,
-    ScrollView,
-    FlatList,
-    Image,
-    Picker,
-    Platform
+    Dimensions,
+    StyleSheet,
+    TouchableOpacity,
+    Platform,
+    KeyboardAvoidingView
 } from 'react-native';
 import TextoVerde from './Componentes/TextoVerde';
 
@@ -18,73 +18,91 @@ import TextoVerde from './Componentes/TextoVerde';
 export default class Inicio extends Component{
 
     state = {
-        listaDatos: [
-            {
-                nombre:"Torre Sevilla",
-                imagen:"https://pbs.twimg.com/media/BnO4QhNIMAALRnK.jpg"
-            },
-            {
-                nombre:"Plaza de España de Sevilla",
-                imagen:"https://sevilla.abc.es/media/sevilla/2018/11/29/s/portada-plaza-espana-koX--620x349@abc.jpg"
-            },
-            {
-                nombre:"Alcazar de Sevilla",
-                imagen:"http://www.pasaporteblog.com/wp-content/uploads/2018/03/patio-de-las-doncellas-real-alcazar-de-sevilla.jpg"
-            }
-        ],
-        imagenSelecionada:0
+        mensaje:"Teclado no mostrado"
     }
+
+    enabledKeyboardCompress = false;
 
     constructor(props){
         super(props);
+
+        if(Platform.OS == "ios"){
+            this.enabledKeyboardCompress = true;
+        }
+
+        var {height, width} = Dimensions.get('window');
+
+        this.state.mensaje += " H:"+height;
+
     }
     
 
-    componentDidMount(){
-        
-    }
-
-    cambiarImagen(value,index){
+    componentDidMount() {
+        var self = this;
+        this.keyboardDidShowListener = Keyboard.addListener(
+          'keyboardDidShow',
+          this._keyboardDidShow.bind(self),
+        );
+        this.keyboardDidHideListener = Keyboard.addListener(
+          'keyboardDidHide',
+          this._keyboardDidHide.bind(self),
+        );
+      }
+    
+      componentWillUnmount() {
+        this.keyboardDidShowListener.remove();
+        this.keyboardDidHideListener.remove();
+      }
+    
+      _keyboardDidShow() {
+        var {height, width} = Dimensions.get('window');
         this.setState({
-            imagenSelecionada: index
+            mensaje:"Teclado mostrado H:"+height
         });
+      }
+    
+      _keyboardDidHide() {
+        var {height, width} = Dimensions.get('window');
+        this.setState({
+            mensaje:"Teclado no mostrado H:"+height
+        });
+      }
+
+    alerta(){
+        Alert.alert("Esto es una alerta");
     }
 
     render(){
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled={this.enabledKeyboardCompress}>
                 
                 <View style={styles.separador}>
 
-                    <Image
-                        style={styles.imagen}
-                        source={{uri: this.state.listaDatos[this.state.imagenSelecionada].imagen}}
-                        resizeMode="cover"
-                    />
+                    <TouchableOpacity
+                        style={styles.boton}
+                        onPress={this.alerta}
+                    >
+                        <TextoVerde texto="Alerta"></TextoVerde>
+
+                    </TouchableOpacity>
+
+                    <Text>{this.state.mensaje}</Text>
                     
                 </View>
                 <View style={styles.separador}>
-                    <Picker
-                        selectedValue={this.state.imagenSelecionada}
-                        style={styles.picker}
-                        onValueChange={(itemValue, itemIndex) => this.cambiarImagen(itemValue,itemIndex)}>
-
-                        {
-                            this.state.listaDatos.map(function(value,idx){
-                                return(
-                                    <Picker.Item key={idx} label={value.nombre} value={idx} />
-                                );
-                            })
-                        }
-                        
-                    </Picker>
+                    <TextInput
+                        style={styles.input}
+                        onSubmitEditing={Keyboard.dismiss}
+                    ></TextInput>
                 </View>
 
                 <View style={styles.separador}>
-                    
+                    <TextInput
+                        style={styles.input}
+                    ></TextInput>
                 </View>
                 
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }
@@ -97,22 +115,23 @@ const styles = StyleSheet.create({
     },
     separador:{
         flex:1,
-        ...Platform.select({
-            android: {
-                justifyContent: 'center',
-            },
-        }),
+        justifyContent: 'center',
         alignItems: 'center',
         borderWidth:2,
         borderColor:"#228822"
     },
-    imagen:{
-        height:'100%',
-        width:'100%'
+    boton:{
+        backgroundColor:"#222",
+        padding:20,
+        borderRadius:5
     },
-    picker:{
-        height:80,
-        width:'90%'
+    input:{
+        width:200,
+        height:40,
+        backgroundColor:"#000",
+        borderRadius:20,
+        padding:5,
+        color:"#fff"
     }
 });
 
