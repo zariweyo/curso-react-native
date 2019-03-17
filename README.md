@@ -18,7 +18,7 @@ Esto es un curso básico de React Native
 * Estilos
 ## [Renders 3](https://github.com/zariweyo/curso-react-native/tree/renders-3)
 * Flexbox
-## [Calculadora V 0.1](https://github.com/zariweyo/curso-react-native/tree/calculadora-1)
+## [TALLER: Calculadora V 0.1](https://github.com/zariweyo/curso-react-native/tree/calculadora-1)
 * Maquetar distribución de la calculadora
 ## [Componentes básicos del framework](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos)
 * Cuáles son los componentes básicos del framework
@@ -30,7 +30,7 @@ Esto es un curso básico de React Native
 * Image 
 * Picker
 * Platform
-## [Calculadora V 0.2](https://github.com/zariweyo/curso-react-native/tree/calculadora-2)
+## [TALLER: Calculadora V 0.2](https://github.com/zariweyo/curso-react-native/tree/calculadora-2)
 * Botones de calculadora
 * Funciones y resultado
 ## [APIs de React Native 1](https://github.com/zariweyo/curso-react-native/tree/apis)
@@ -43,5 +43,5 @@ Esto es un curso básico de React Native
 * Vibration
 ## [APIs de React Native 4](https://github.com/zariweyo/curso-react-native/tree/apis-4)
 * Geolocation
-## [Calculadora V 0.3](https://github.com/zariweyo/curso-react-native/tree/calculadora-3)
+## [TALLER: Calculadora V 0.3](https://github.com/zariweyo/curso-react-native/tree/calculadora-3)
 * Calculadora V 0.3
