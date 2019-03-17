@@ -9,71 +9,66 @@ import {
     StyleSheet,
     TouchableOpacity,
     Platform,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    PermissionsAndroid
     
 } from 'react-native';
 import TextoVerde from './Componentes/TextoVerde';
-import AsyncStorage from '@react-native-community/async-storage';
+import Geolocation from 'react-native-geolocation-service';
 
 
 
 export default class Inicio extends Component{
 
     state = {
-        cuenta:0
+        cuenta:0,
+        gps:{
+            latitude:0,
+            longitude:0
+        }
     }
 
-    enabledKeyboardCompress = false;
 
     constructor(props){
         super(props);
-
-        if(Platform.OS == "ios"){
-            this.enabledKeyboardCompress = true;
-        }
-
-        var {height, width} = Dimensions.get('window');
-
-        this.state.mensaje += " H:"+height;
-
     }
     
 
     componentDidMount() {
+
         var self = this;
 
-        AsyncStorage.getItem("CUENTA",function(err,dato){
-            
-            if(err || dato==null){
-                return;
-            }
-
-            var cuenta = parseInt(dato);
-            if(isNaN(cuenta)){
-                cuenta=0;
-            }
-
-            self.setState({
-                cuenta
+        if (Platform.OS === 'android') {
+            if (Platform.Version >= 23)
+              PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then((permission) => {
+                if (permission === PermissionsAndroid.RESULTS.GRANTED){
+                    self.actualizarPosicion(); 
+                }
             });
-        });
-      }
+        }else{
+            this.actualizarPosicion(); 
+        }
 
-    addOne(){
-        var cuenta = this.state.cuenta +1;
+           
+    }
+
+    actualizarPosicion(){
         var self = this;
 
-        AsyncStorage.setItem("CUENTA",""+cuenta,function(error){
-            if(error==null){
-                self.setState({
-                    cuenta
-                });
-            }
-        });
-  
-
-        
-        
+        Geolocation.getCurrentPosition(
+                (position) => {
+                    self.setState({
+                        gps:{
+                            latitude:position.coords.latitude,
+                            longitude:position.coords.longitude,
+                        }
+                    });
+                },
+                (error) => {
+                    console.warn(error);
+                },
+                { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        );
     }
 
     render(){
@@ -84,13 +79,14 @@ export default class Inicio extends Component{
 
                     <TouchableOpacity
                         style={styles.boton}
-                        onPress={this.addOne.bind(this)}
+                        onPress={this.actualizarPosicion.bind(this)}
                     >
-                        <TextoVerde texto="ADD"></TextoVerde>
+                        <TextoVerde texto="Actualizar GPS"></TextoVerde>
 
                     </TouchableOpacity>
 
-                    <Text>CUENTA: {this.state.cuenta}</Text>
+                    <Text>Longitud: {this.state.gps.longitude}</Text>
+                    <Text>Latitud: {this.state.gps.latitude}</Text>
                     
                 </View>
                 
@@ -116,14 +112,6 @@ const styles = StyleSheet.create({
         backgroundColor:"#222",
         padding:20,
         borderRadius:5
-    },
-    input:{
-        width:200,
-        height:40,
-        backgroundColor:"#000",
-        borderRadius:20,
-        padding:5,
-        color:"#fff"
     }
 });
 
