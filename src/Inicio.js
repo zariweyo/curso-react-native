@@ -9,11 +9,11 @@ import {
     StyleSheet,
     TouchableOpacity,
     Platform,
-    KeyboardAvoidingView,
-    AsyncStorage
+    KeyboardAvoidingView
     
 } from 'react-native';
 import TextoVerde from './Componentes/TextoVerde';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 
