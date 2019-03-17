@@ -1,5 +1,4 @@
-## APIs 1
-* Alert y Dimensions
-* Keyboard y componente KeyboardAvoidingView
+## APIs 2
+* AsyncStorage
 
 [Volver](https://github.com/zariweyo/curso-react-native)

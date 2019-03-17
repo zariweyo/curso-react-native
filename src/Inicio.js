@@ -9,7 +9,9 @@ import {
     StyleSheet,
     TouchableOpacity,
     Platform,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    AsyncStorage
+    
 } from 'react-native';
 import TextoVerde from './Componentes/TextoVerde';
 
@@ -18,7 +20,7 @@ import TextoVerde from './Componentes/TextoVerde';
 export default class Inicio extends Component{
 
     state = {
-        mensaje:"Teclado no mostrado"
+        cuenta:0
     }
 
     enabledKeyboardCompress = false;
@@ -39,70 +41,60 @@ export default class Inicio extends Component{
 
     componentDidMount() {
         var self = this;
-        this.keyboardDidShowListener = Keyboard.addListener(
-          'keyboardDidShow',
-          this._keyboardDidShow.bind(self),
-        );
-        this.keyboardDidHideListener = Keyboard.addListener(
-          'keyboardDidHide',
-          this._keyboardDidHide.bind(self),
-        );
-      }
-    
-      componentWillUnmount() {
-        this.keyboardDidShowListener.remove();
-        this.keyboardDidHideListener.remove();
-      }
-    
-      _keyboardDidShow() {
-        var {height, width} = Dimensions.get('window');
-        this.setState({
-            mensaje:"Teclado mostrado H:"+height
-        });
-      }
-    
-      _keyboardDidHide() {
-        var {height, width} = Dimensions.get('window');
-        this.setState({
-            mensaje:"Teclado no mostrado H:"+height
+
+        AsyncStorage.getItem("CUENTA",function(err,dato){
+            
+            if(err || dato==null){
+                return;
+            }
+
+            var cuenta = parseInt(dato);
+            if(isNaN(cuenta)){
+                cuenta=0;
+            }
+
+            self.setState({
+                cuenta
+            });
         });
       }
 
-    alerta(){
-        Alert.alert("Esto es una alerta");
+    addOne(){
+        var cuenta = this.state.cuenta +1;
+        var self = this;
+
+        AsyncStorage.setItem("CUENTA",""+cuenta,function(error){
+            if(error==null){
+                self.setState({
+                    cuenta
+                });
+            }
+        });
+  
+
+        
+        
     }
 
     render(){
         return (
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled={this.enabledKeyboardCompress}>
+            <View style={styles.container}>
                 
                 <View style={styles.separador}>
 
                     <TouchableOpacity
                         style={styles.boton}
-                        onPress={this.alerta}
+                        onPress={this.addOne.bind(this)}
                     >
-                        <TextoVerde texto="Alerta"></TextoVerde>
+                        <TextoVerde texto="ADD"></TextoVerde>
 
                     </TouchableOpacity>
 
-                    <Text>{this.state.mensaje}</Text>
+                    <Text>CUENTA: {this.state.cuenta}</Text>
                     
                 </View>
-                <View style={styles.separador}>
-                    <TextInput
-                        style={styles.input}
-                        onSubmitEditing={Keyboard.dismiss}
-                    ></TextInput>
-                </View>
-
-                <View style={styles.separador}>
-                    <TextInput
-                        style={styles.input}
-                    ></TextInput>
-                </View>
                 
-            </KeyboardAvoidingView>
+            </View>
         );
     }
 }
