@@ -22,7 +22,8 @@ Esto es un curso básico de React Native
 ## [Componentes básicos del framework](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos)
 * Cuáles son los componentes básicos del framework
 * TextInput
-* Button
+* TouchableHighlight
+* TouchableOpacity
 * ScrollView
 * FlatList
 ## [Componentes básicos del framework 2](https://github.com/zariweyo/curso-react-native/tree/componentes-basicos-2)
