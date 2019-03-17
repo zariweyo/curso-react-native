@@ -1,5 +1,6 @@
 # Curso React Native
 Esto es un curso básico de React Native
+# Clases
 ## [Preparar el entorno](https://github.com/zariweyo/curso-react-native/tree/hola_mundo)
 * Hola mundo
 * Ejecutar aplicación en emulador Android
