@@ -41,6 +41,7 @@ Esto es un curso básico de React Native
 ## [APIs de React Native 2 B](https://github.com/zariweyo/curso-react-native/tree/apis-2-sol-asyncstorage)
 * Solucion warning AsyncStorage
 ## [APIs de React Native 3](https://github.com/zariweyo/curso-react-native/tree/apis-3)
+* PermissionAndroid
 * Geolocation
 ## [TALLER: Calculadora V 0.3](https://github.com/zariweyo/curso-react-native/tree/calculadora-3)
 * Calculadora V 0.3
